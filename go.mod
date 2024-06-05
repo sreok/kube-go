@@ -1,6 +1,8 @@
 module github.com/sreok/kube-go
 
-go 1.21.0
+go 1.22.0
+
+toolchain go1.22.4
 
 require (
 	github.com/bytedance/sonic v1.11.8 // indirect
@@ -30,4 +32,5 @@ require (
 	golang.org/x/text v0.16.0 // indirect
 	google.golang.org/protobuf v1.34.1 // indirect
 	gopkg.in/yaml.v3 v3.0.1 // indirect
+	k8s.io/client-go v0.30.1 // indirect
 )
