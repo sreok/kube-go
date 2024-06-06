@@ -1,0 +1,28 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "description": "基于client-go和gin框架后端api服务",
+        "title": "kube-go",
+        "termsOfService": "https://github.com/sreok/kube-go",
+        "contact": {},
+        "version": "0.1.0"
+    },
+    "paths": {
+        "/accounts/{id}": {
+            "get": {
+                "description": "get string by ID",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "获取命名空间"
+                ],
+                "summary": "Show an account",
+                "responses": {}
+            }
+        }
+    }
+}
