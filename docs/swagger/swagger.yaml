@@ -5,7 +5,14 @@ info:
   title: kube-go
   version: 0.1.0
 paths:
-  /accounts/{id}:
+  /api/namespaces:
+    get:
+      description: 获取命名空间
+      responses: {}
+      summary: Show an account
+      tags:
+      - 获取命名空间
+  /namespace:
     get:
       consumes:
       - application/json

@@ -8,7 +8,17 @@
         "version": "0.1.0"
     },
     "paths": {
-        "/accounts/{id}": {
+        "/api/namespaces": {
+            "get": {
+                "description": "获取命名空间",
+                "tags": [
+                    "获取命名空间"
+                ],
+                "summary": "Show an account",
+                "responses": {}
+            }
+        },
+        "/namespace": {
             "get": {
                 "description": "get string by ID",
                 "consumes": [
