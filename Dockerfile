@@ -4,7 +4,9 @@ ENV GO111MODULE=on \
     GOOS=linux \
     GOARCH=amd64 \
 	GOPROXY="https://goproxy.cn,direct"
-	
-COPY ./build/main .kube-go
+WORKDIR /opt/kube-go
+COPY . .
+RUN go mod tidy
+RUN go build -o app ./main
 EXPOSE 8080
-ENTRYPOINT ["./kube-go"]
+ENTRYPOINT ["/opt/kube-go/app"]

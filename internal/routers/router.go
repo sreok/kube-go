@@ -26,6 +26,5 @@ func GetNamespacesList(context *gin.Context) {
 	}
 	for _, namespace := range namespaces.Items {
 		log.Println(namespace.Name)
-		log.Println(namespace.Labels)
 	}
 }

@@ -1,0 +1,36 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: kube-go
+  labels:
+    app: kube-go
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: kube-go
+  template:
+    metadata:
+      labels:
+        app: kube-go
+    spec:
+      containers:
+        - name: kube-go
+          image: kube-go:v0.1.0
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 8080
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: kube-go
+spec:
+  selector:
+    app: kube-go
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 8080
+      nodePort: 30080
+  type: NodePort
