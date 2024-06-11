@@ -16,7 +16,7 @@
 
 ```shell
 go mod tidy
-go build -o ./build/ ./main/mian.go
+go build -o ./build/ ./main/main.go
 go run main/main.go
 ```
 
@@ -24,5 +24,5 @@ go run main/main.go
 `http://127.0.0.1:8080/swagger/index.html`
 ### 更新API文档
 ```shell
-swag init -g ./main/mian.go -o ./docs/swagger
+swag init -g ./main/main.go -o ./docs/swagger
 ```

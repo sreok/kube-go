@@ -12,25 +12,19 @@
             "get": {
                 "description": "获取命名空间",
                 "tags": [
-                    "获取命名空间"
+                    "Kubernetes"
                 ],
-                "summary": "Show an account",
+                "summary": "获取命名空间",
                 "responses": {}
             }
         },
-        "/namespace": {
+        "/api/pods": {
             "get": {
-                "description": "get string by ID",
-                "consumes": [
-                    "application/json"
-                ],
-                "produces": [
-                    "application/json"
-                ],
+                "description": "获取pod列表",
                 "tags": [
-                    "获取命名空间"
+                    "Kubernetes"
                 ],
-                "summary": "Show an account",
+                "summary": "获取pod列表",
                 "responses": {}
             }
         }

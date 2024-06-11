@@ -21,7 +21,8 @@ func main() {
 
 	api := r.Group("/api")
 	{
-		api.GET("/namespaces", routers.GetNamespacesList)
+		api.GET("/namespaces", routers.GetNamespaces)
+		api.GET("/pods", routers.GetPods)
 	}
 
 	// 指定地址和端口号

@@ -10,23 +10,6 @@ import (
 	"os"
 )
 
-func KubeClient() (*kubernetes.Clientset, error) {
-	path := configs.KubeConfig
-	var clientSet *kubernetes.Clientset
-	_, err := os.Stat(path)
-	// 文件存在，走外部集群
-	if err == nil {
-		log.Println("Out Cluster")
-		clientSet = OutCluster()
-	}
-	// 文件不存在，走内部集群
-	if os.IsNotExist(err) {
-		log.Println("In Cluster")
-		clientSet = InCluster()
-	}
-	return clientSet, err
-}
-
 func InCluster() *kubernetes.Clientset {
 	// creates the in-cluster configs
 	config, err := rest.InClusterConfig()
@@ -42,17 +25,27 @@ func InCluster() *kubernetes.Clientset {
 }
 
 func OutCluster() *kubernetes.Clientset {
-
-	// use the current context in kubeconfig
 	config, err := clientcmd.BuildConfigFromFlags("", configs.KubeConfig)
 	if err != nil {
 		panic(err.Error())
 	}
 
-	// create the clientset
 	clientset, err := kubernetes.NewForConfig(config)
 	if err != nil {
 		panic(err.Error())
 	}
 	return clientset
+}
+
+func KubeClient() *kubernetes.Clientset {
+	var clientSet *kubernetes.Clientset
+	_, err := os.Stat(configs.KubeConfig)
+	if os.IsNotExist(err) { // 文件不存在，走内部集群
+		log.Println("In Cluster")
+		clientSet = InCluster()
+	} else { // 文件存在，走外部集群
+		log.Println("Out Cluster")
+		clientSet = OutCluster()
+	}
+	return clientSet
 }

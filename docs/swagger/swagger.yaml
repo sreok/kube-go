@@ -9,18 +9,14 @@ paths:
     get:
       description: 获取命名空间
       responses: {}
-      summary: Show an account
+      summary: 获取命名空间
       tags:
-      - 获取命名空间
-  /namespace:
+      - Kubernetes
+  /api/pods:
     get:
-      consumes:
-      - application/json
-      description: get string by ID
-      produces:
-      - application/json
+      description: 获取pod列表
       responses: {}
-      summary: Show an account
+      summary: 获取pod列表
       tags:
-      - 获取命名空间
+      - Kubernetes
 swagger: "2.0"
