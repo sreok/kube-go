@@ -5,6 +5,39 @@ info:
   title: kube-go
   version: 0.1.0
 paths:
+  /api/deployments:
+    get:
+      description: 获取Deployments列表
+      parameters:
+      - description: 命名空间
+        in: query
+        name: namespace
+        type: string
+      produces:
+      - application/json
+      responses: {}
+      summary: 获取Deployments列表
+      tags:
+      - Kubernetes
+  /api/gateways:
+    get:
+      description: 获取gateway信息
+      parameters:
+      - description: 命名空间
+        in: query
+        name: namespace
+        type: string
+      responses: {}
+      summary: 获取gateway信息
+      tags:
+      - Kubernetes
+  /api/groups:
+    get:
+      description: 获取APIGroups信息
+      responses: {}
+      summary: 获取APIGroups信息
+      tags:
+      - Kubernetes
   /api/namespaces:
     get:
       description: 获取命名空间
@@ -12,11 +45,67 @@ paths:
       summary: 获取命名空间
       tags:
       - Kubernetes
-  /api/pods:
+  /api/nodes:
+    get:
+      description: 获取node列表
+      responses: {}
+      summary: 获取node列表
+      tags:
+      - Kubernetes
+  /api/pod/list:
     get:
       description: 获取pod列表
+      parameters:
+      - description: 命名空间
+        in: query
+        name: namespace
+        type: string
+      produces:
+      - application/json
       responses: {}
       summary: 获取pod列表
+      tags:
+      - Kubernetes
+  /api/services:
+    get:
+      description: 获取Service列表
+      parameters:
+      - description: 命名空间
+        in: query
+        name: namespace
+        type: string
+      produces:
+      - application/json
+      responses: {}
+      summary: 获取Service列表
+      tags:
+      - Kubernetes
+  /api/vm/list:
+    get:
+      description: 获取vm列表
+      parameters:
+      - description: 命名空间
+        in: query
+        name: namespace
+        type: string
+      produces:
+      - application/json
+      responses: {}
+      summary: 获取vm列表
+      tags:
+      - Kubernetes
+  /api/vmi/list:
+    get:
+      description: 获取vmi列表
+      parameters:
+      - description: 命名空间
+        in: query
+        name: namespace
+        type: string
+      produces:
+      - application/json
+      responses: {}
+      summary: 获取vmi列表
       tags:
       - Kubernetes
 swagger: "2.0"

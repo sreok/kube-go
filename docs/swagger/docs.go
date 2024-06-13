@@ -16,6 +16,55 @@ const docTemplate = `{
     "host": "{{.Host}}",
     "basePath": "{{.BasePath}}",
     "paths": {
+        "/api/deployments": {
+            "get": {
+                "description": "获取Deployments列表",
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Kubernetes"
+                ],
+                "summary": "获取Deployments列表",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "命名空间",
+                        "name": "namespace",
+                        "in": "query"
+                    }
+                ],
+                "responses": {}
+            }
+        },
+        "/api/gateways": {
+            "get": {
+                "description": "获取gateway信息",
+                "tags": [
+                    "Kubernetes"
+                ],
+                "summary": "获取gateway信息",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "命名空间",
+                        "name": "namespace",
+                        "in": "query"
+                    }
+                ],
+                "responses": {}
+            }
+        },
+        "/api/groups": {
+            "get": {
+                "description": "获取APIGroups信息",
+                "tags": [
+                    "Kubernetes"
+                ],
+                "summary": "获取APIGroups信息",
+                "responses": {}
+            }
+        },
         "/api/namespaces": {
             "get": {
                 "description": "获取命名空间",
@@ -26,13 +75,97 @@ const docTemplate = `{
                 "responses": {}
             }
         },
-        "/api/pods": {
+        "/api/nodes": {
+            "get": {
+                "description": "获取node列表",
+                "tags": [
+                    "Kubernetes"
+                ],
+                "summary": "获取node列表",
+                "responses": {}
+            }
+        },
+        "/api/pod/list": {
             "get": {
                 "description": "获取pod列表",
+                "produces": [
+                    "application/json"
+                ],
                 "tags": [
                     "Kubernetes"
                 ],
                 "summary": "获取pod列表",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "命名空间",
+                        "name": "namespace",
+                        "in": "query"
+                    }
+                ],
+                "responses": {}
+            }
+        },
+        "/api/services": {
+            "get": {
+                "description": "获取Service列表",
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Kubernetes"
+                ],
+                "summary": "获取Service列表",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "命名空间",
+                        "name": "namespace",
+                        "in": "query"
+                    }
+                ],
+                "responses": {}
+            }
+        },
+        "/api/vm/list": {
+            "get": {
+                "description": "获取vm列表",
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Kubernetes"
+                ],
+                "summary": "获取vm列表",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "命名空间",
+                        "name": "namespace",
+                        "in": "query"
+                    }
+                ],
+                "responses": {}
+            }
+        },
+        "/api/vmi/list": {
+            "get": {
+                "description": "获取vmi列表",
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Kubernetes"
+                ],
+                "summary": "获取vmi列表",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "命名空间",
+                        "name": "namespace",
+                        "in": "query"
+                    }
+                ],
                 "responses": {}
             }
         }

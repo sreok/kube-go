@@ -2,8 +2,8 @@ package main
 
 import (
 	"github.com/gin-gonic/gin"
+	"github.com/sreok/kube-go/api/kube"
 	_ "github.com/sreok/kube-go/docs/swagger"
-	"github.com/sreok/kube-go/internal/routers"
 	swaggerFiles "github.com/swaggo/files"
 	ginSwagger "github.com/swaggo/gin-swagger"
 	"log"
@@ -14,19 +14,33 @@ import (
 // @description 基于client-go和gin框架后端api服务
 // @termsOfService https://github.com/sreok/kube-go
 func main() {
-	r := gin.Default()
-
+	route := gin.Default()
 	// swagger文档
-	r.GET("/swagger/*any", ginSwagger.WrapHandler(swaggerFiles.Handler))
+	route.GET("/swagger/*any", ginSwagger.WrapHandler(swaggerFiles.Handler))
 
-	api := r.Group("/api")
+	routeApi := route.Group("/api")
 	{
-		api.GET("/namespaces", routers.GetNamespaces)
-		api.GET("/pods", routers.GetPods)
+		routeApi.GET("/namespaces", kube.GetNamespaces)
+		pod := routeApi.Group("/pod")
+		{
+			pod.GET("/list", kube.GetPods)
+		}
+		routeApi.GET("/nodes", kube.GetNodes)
+		routeApi.GET("/groups", kube.GetAPIGroups)
+		routeApi.GET("/gateways", kube.GetGateways)
+		routeApi.GET("/services", kube.GetServices)
+		routeApi.GET("/deployments", kube.GetDeployments)
+		vm := routeApi.Group("/vm")
+		{
+			vm.GET("/list", kube.GetVMs)
+		}
+		vmi := routeApi.Group("/vmi")
+		{
+			vmi.GET("/list", kube.GetVMIs)
+		}
 	}
 
-	// 指定地址和端口号
-	err := r.Run(":8080")
+	err := route.Run(":8080")
 	if err != nil {
 		log.Println(err)
 		return
