@@ -55,16 +55,6 @@ const docTemplate = `{
                 "responses": {}
             }
         },
-        "/api/groups": {
-            "get": {
-                "description": "获取APIGroups信息",
-                "tags": [
-                    "Kubernetes"
-                ],
-                "summary": "获取APIGroups信息",
-                "responses": {}
-            }
-        },
         "/api/namespaces": {
             "get": {
                 "description": "获取命名空间",
@@ -85,7 +75,7 @@ const docTemplate = `{
                 "responses": {}
             }
         },
-        "/api/pod/list": {
+        "/api/pod": {
             "get": {
                 "description": "获取pod列表",
                 "produces": [
@@ -103,6 +93,30 @@ const docTemplate = `{
                         "in": "query"
                     }
                 ],
+                "responses": {}
+            },
+            "put": {
+                "description": "获取APIGroups信息",
+                "tags": [
+                    "Kubernetes"
+                ],
+                "summary": "获取APIGroups信息",
+                "responses": {}
+            },
+            "post": {
+                "description": "获取APIGroups信息",
+                "tags": [
+                    "Kubernetes"
+                ],
+                "summary": "获取APIGroups信息",
+                "responses": {}
+            },
+            "delete": {
+                "description": "获取APIGroups信息",
+                "tags": [
+                    "Kubernetes"
+                ],
+                "summary": "获取APIGroups信息",
                 "responses": {}
             }
         },

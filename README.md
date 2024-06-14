@@ -24,5 +24,7 @@ go run main/main.go
 `http://127.0.0.1:8080/swagger/index.html`
 ### 更新API文档
 ```shell
+go install github.com/swaggo/swag/cmd/swag@latest
+mv $GOPATH/bin/swag /usr/local/go/bin 
 swag init -g ./main/main.go -o ./docs/swagger
 ```

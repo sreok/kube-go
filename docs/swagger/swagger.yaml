@@ -31,13 +31,6 @@ paths:
       summary: 获取gateway信息
       tags:
       - Kubernetes
-  /api/groups:
-    get:
-      description: 获取APIGroups信息
-      responses: {}
-      summary: 获取APIGroups信息
-      tags:
-      - Kubernetes
   /api/namespaces:
     get:
       description: 获取命名空间
@@ -52,7 +45,13 @@ paths:
       summary: 获取node列表
       tags:
       - Kubernetes
-  /api/pod/list:
+  /api/pod:
+    delete:
+      description: 获取APIGroups信息
+      responses: {}
+      summary: 获取APIGroups信息
+      tags:
+      - Kubernetes
     get:
       description: 获取pod列表
       parameters:
@@ -64,6 +63,18 @@ paths:
       - application/json
       responses: {}
       summary: 获取pod列表
+      tags:
+      - Kubernetes
+    post:
+      description: 获取APIGroups信息
+      responses: {}
+      summary: 获取APIGroups信息
+      tags:
+      - Kubernetes
+    put:
+      description: 获取APIGroups信息
+      responses: {}
+      summary: 获取APIGroups信息
       tags:
       - Kubernetes
   /api/services:
