@@ -23,7 +23,10 @@ func main() {
 		routeApi.GET("/namespaces", kube.GetNamespaces)
 		pod := routeApi.Group("/pod")
 		{
-			pod.GET("/list", kube.GetPods)
+			pod.POST("/", kube.PostPods)
+			pod.DELETE("/", kube.DeletePods)
+			pod.PUT("/", kube.PutPods)
+			pod.GET("/", kube.GetPods)
 		}
 		routeApi.GET("/nodes", kube.GetNodes)
 		routeApi.GET("/groups", kube.GetAPIGroups)

@@ -15,7 +15,7 @@ import (
 // @Tags			Kubernetes
 // @Produce			json
 // @Param namespace query string false "命名空间"
-// @Router       /api/pod/list [get]
+// @Router       /api/pod [get]
 func GetPods(context *gin.Context) {
 	namespace := context.DefaultQuery("namespace", "")
 	pods, err := models.ClientSet().CoreV1().Pods(namespace).List(context, metav1.ListOptions{})
