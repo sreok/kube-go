@@ -30,7 +30,10 @@ func main() {
 		}
 		routeApi.GET("/nodes", kube.GetNodes)
 		routeApi.GET("/groups", kube.GetAPIGroups)
-		routeApi.GET("/gateways", kube.GetGateways)
+		istio := routeApi.Group("/")
+		{
+			istio.GET("/gateways", kube.GetIstioGateways)
+		}
 		routeApi.GET("/services", kube.GetServices)
 		routeApi.GET("/deployments", kube.GetDeployments)
 		vm := routeApi.Group("/vm")
