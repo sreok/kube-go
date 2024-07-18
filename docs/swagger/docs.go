@@ -55,6 +55,16 @@ const docTemplate = `{
                 "responses": {}
             }
         },
+        "/api/groups": {
+            "get": {
+                "description": "获取APIGroups信息",
+                "tags": [
+                    "Kubernetes"
+                ],
+                "summary": "获取APIGroups信息",
+                "responses": {}
+            }
+        },
         "/api/namespaces": {
             "get": {
                 "description": "获取命名空间",
